@@ -5,7 +5,17 @@ import plotly.graph_objs as go
 import google.generativeai as genai
 
 # ----------------- CONFIGURACIÓN GEMINI -----------------
-api_key = "AIzaSyCPyb9KQcsRe87k_T9WJmLTHtIt340pHHw"  # <-- ¡Reemplaza con tu clave!
+import os
+from dotenv import load_dotenv
+
+# Cargar variables del archivo .env
+load_dotenv()
+
+# Obtener la API Key
+api_key = os.getenv("api_key")
+
+print(f"La API Key es: {api_key}")  # Solo para verificar que funciona (luego puedes eliminarlo)
+
 genai.configure(api_key=api_key)
 modelo = genai.GenerativeModel("gemini-2.0-flash")
 
